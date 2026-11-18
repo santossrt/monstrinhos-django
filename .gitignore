@@ -1,0 +1,27 @@
+# Ambientes, ferramentas locais e credenciais
+.venv/
+venv/
+.tools/
+.env
+.env.*
+!.env.example
+
+# Banco local e arquivos gerados
+db.sqlite3
+db.sqlite3-*
+*.sqlite3
+*.sqlite3-*
+__pycache__/
+*.py[cod]
+.coverage
+htmlcov/
+.pytest_cache/
+staticfiles/
+media/
+*.log
+
+# Editor e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

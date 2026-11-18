@@ -1,0 +1,13 @@
+<article class="monster-card element-{{ monstrinho.elemento }}">
+  <a class="card-art" href="{% url 'monstrinhos:detalhe' monstrinho.pk %}" aria-label="Conhecer {{ monstrinho.nome }}">
+    <span class="card-number">#{{ monstrinho.pk|stringformat:'03d' }}</span>
+    <span class="art-spark spark-one" aria-hidden="true">✦</span>
+    {% include 'monstrinhos/_criatura.html' with elemento=monstrinho.elemento %}
+    <span class="art-spark spark-two" aria-hidden="true">✧</span>
+  </a>
+  <div class="card-content">
+    <div class="card-topline"><span class="element-badge badge-{{ monstrinho.elemento }}"><span aria-hidden="true">{% if monstrinho.elemento == 'fogo' %}♨{% elif monstrinho.elemento == 'agua' %}◈{% else %}❧{% endif %}</span> {{ monstrinho.get_elemento_display }}</span><span class="level">Nível <strong>{{ monstrinho.nivel }}</strong></span></div>
+    <h3><a href="{% url 'monstrinhos:detalhe' monstrinho.pk %}">{{ monstrinho.nome }}</a></h3>
+    <div class="card-footer"><span><span aria-hidden="true">♡</span> {{ monstrinho.alimentacoes }} cuidado{{ monstrinho.alimentacoes|pluralize:"s" }}</span><a class="text-link" href="{% url 'monstrinhos:detalhe' monstrinho.pk %}">Conhecer</a></div>
+  </div>
+</article>

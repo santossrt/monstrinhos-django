@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7456e8">
+  <meta name="description" content="Conheça, colecione e cuide dos seus monstrinhos de fogo, água e planta.">
+  <title>{% block title %}Monstrinhos — sua próxima grande amizade{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'monstrinhos/style.css' %}">
+  <script src="{% static 'monstrinhos/app.js' %}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  {% include 'monstrinhos/_menu.html' %}
+  <main id="conteudo" class="site-main">
+    {% if messages %}
+      <div class="messages" aria-live="polite">
+      {% for message in messages %}<p class="message {{ message.tags }}">{{ message }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="{% url 'monstrinhos:home' %}">monstrinhos.</a><p>Pequenos cuidados. Laços extraordinários.</p><span>Feito com Django e imaginação.</span></footer>
+</body>
+</html>

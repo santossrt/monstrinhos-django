@@ -1,0 +1,10 @@
+<header class="site-header">
+  <a class="brand" href="{% url 'monstrinhos:home' %}" aria-label="Monstrinhos, página inicial">
+    <svg class="brand-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 15 7 5l11 7h6L34 5l-2 12c5 13-1 20-12 20S3 29 9 15Z" fill="currentColor"/><ellipse cx="14" cy="23" rx="3" ry="4" fill="white"/><ellipse cx="26" cy="23" rx="3" ry="4" fill="white"/><path d="M17 29q3 3 6 0" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>monstrinhos<span class="brand-dot">.</span></span>
+  </a>
+  <nav class="main-nav" aria-label="Navegação principal">
+    <a class="nav-collection {% if request.resolver_match.url_name == 'home' %}is-current{% endif %}" href="{% url 'monstrinhos:home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Minha coleção</a>
+    <a class="button button-small" href="{% url 'monstrinhos:cadastrar' %}"><span aria-hidden="true">＋</span> Novo monstrinho</a>
+  </nav>
+</header>
